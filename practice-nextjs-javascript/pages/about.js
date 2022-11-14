@@ -1,4 +1,5 @@
 import NavBar from "../componetns/NavBar";
+import Seo from "../componetns/Seo";
 
 export default function About() {
     return (
