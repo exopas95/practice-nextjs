@@ -27,8 +27,8 @@ NEXT.js 에서도 React와 마찬가지로 `a href` 의 anchor 방식으로 라�
 
 ```jsx
 <nav>
-	<Link href="/">Home</Link>
-	<Link href="/about">About</Link>
+    <Link href="/">Home</Link>
+    <Link href="/about">About</Link>
 </nav>
 ```
 
@@ -52,12 +52,15 @@ CSS 적용은 React와 유사하게 styles 폴더에 {파일명}.module.css 파�
 ```jsx
 // NavBar.js
 <nav>
-	<Link href="/" className={router.pathname === "/" ? styles.active : ""}>
-		Home
-	</Link>
-	<Link href="/about" className={router.pathname === "/about" ? styles.active : ""}>
-		About
-	</Link>
+    <Link href="/" className={router.pathname === "/" ? styles.active : ""}>
+        Home
+    </Link>
+    <Link
+        href="/about"
+        className={router.pathname === "/about" ? styles.active : ""}
+    >
+        About
+    </Link>
 </nav>
 ```
 
@@ -126,7 +129,11 @@ export default function App({ Component, pageProps }) {
 
 ### Patterns
 
+NEXT.js 에서는 디자인 패턴으로 Layout 패턴을 많이 쓴다. \_app.js 에 모든 것들을 설정하기에는 파일이 너무 커지기 때문에, Layout과 관련된 것들은 모두 Layout.js 파일에 정리한다. HTML의 구조를 Layout에 정의한 후, 이를 \_app.js에서 세팅해주는 형식으로 나눠서 관리한다. 이는 특히 Header와 Footer를 적용할때 자주 사용된다.
+
 ### Fetching Data
+
+
 
 ### Redirect and Rewrite
 
