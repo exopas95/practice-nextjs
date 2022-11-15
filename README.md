@@ -178,6 +178,22 @@ export async function getServerSideProps() {
 
 ### Dynamic Routes
 
+**[1. router.push(url, as, options)](https://nextjs.org/docs/api-reference/next/router#routerpush)**
+
+클라이언트 측 전환을 처리합니다. 이 방법은 next/link가 충분하지 않은 경우에 유용합니다.  
+url: UrlObject | String: 탐색할 URL  
+as: UrlObject | String: 브라우저 URL 표시줄에 표시될 경로에 대한 선택적 데코레이터입니다.
+
+```javascript
+router.push({
+    pathname: "/post/[pid]",
+    query: { pid: post.id },
+});
+```
+
+외부 URL에 대해서는 router.push()를 사용할 필요가 없습니다.  
+window.location을 사용하는 것이 더 적합합니다.
+
 ### Catch All
 
 ### 404 Pages
