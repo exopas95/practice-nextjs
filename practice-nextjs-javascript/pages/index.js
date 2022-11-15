@@ -1,19 +1,11 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import Seo from "../componetns/Seo";
+import Seo from "../components/Seo";
 
 export default function Home({ data }) {
     const router = useRouter();
     const onClick = (id, title) => {
-        router.push(
-            {
-                pathname: `/movies/${id}`,
-                query: {
-                    title,
-                },
-            },
-            `/movies/${id}`
-        );
+        router.push(`/movies/${title}/${id}`);
     };
     return (
         <div className="container">
@@ -29,13 +21,7 @@ export default function Home({ data }) {
                     />
                     <h4>
                         <Link
-                            href={{
-                                pathname: `/movies/${movie.id}`,
-                                query: {
-                                    title: movie.original_title,
-                                },
-                            }}
-                            as={`/movies/${movie.id}`}
+                            href={`/movies/${movie.original_title}/${movie.id}`}
                         >
                             {movie.original_title}
                         </Link>
